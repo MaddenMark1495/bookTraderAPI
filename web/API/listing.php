@@ -56,7 +56,7 @@
 				$check_isbn_sql = 	"SELECT * FROM Book WHERE ISBN = ? LIMIT 1";
 				
 				if(!($check_isbn_stmt = $db_conn->prepare($check_isbn_sql))) {
-					set_generic_error_response( "There was an error preparing the statement ... " . $db_conn->error_get_last());
+					set_generic_error_response( "There was an error preparing the statement ... " . $db_conn->error);
 				}
 				
 				if(!($check_isbn_stmt->bind_param("s", $isbn))) {
